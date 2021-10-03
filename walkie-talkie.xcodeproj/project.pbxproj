@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6221E66B2708E32C00D00A4B /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6221E66A2708E32C00D00A4B /* NetworkHandler.swift */; };
+		6221E66D2708E4BF00D00A4B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6221E66C2708E4BF00D00A4B /* Message.swift */; };
+		6221E66F2708E71300D00A4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6221E66E2708E71300D00A4B /* User.swift */; };
+		62794372270953E800330294 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794371270953E800330294 /* RecordView.swift */; };
+		627943742709553700330294 /* WaveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627943732709553700330294 /* WaveAnimation.swift */; };
+		62794376270A2AFF00330294 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794375270A2AFF00330294 /* SearchBar.swift */; };
+		62794378270A32C800330294 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794377270A32C800330294 /* ProfileImage.swift */; };
+		6279437A270A48D800330294 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794379270A48D800330294 /* CustomError.swift */; };
+		6279437C270A498B00330294 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279437B270A498B00330294 /* Player.swift */; };
+		6279437E270A4A3A00330294 /* MessageBubbleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279437D270A4A3A00330294 /* MessageBubbleHandler.swift */; };
+		62B322132708F6F900B421AE /* WalkieTalkieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B322122708F6F900B421AE /* WalkieTalkieView.swift */; };
+		62B322152708F76000B421AE /* WalkieTalkieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B322142708F76000B421AE /* WalkieTalkieRow.swift */; };
+		62B322182708F82600B421AE /* Eextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B322172708F82600B421AE /* Eextensions.swift */; };
+		62B3221A270908F000B421AE /* ContentViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B32219270908F000B421AE /* ContentViewHandler.swift */; };
+		62B3221D2709411000B421AE /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B3221C2709411000B421AE /* MessageBubble.swift */; };
+		62B3221F2709425A00B421AE /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B3221E2709425A00B421AE /* MessagesView.swift */; };
 		62B9ACA02708D83600BD350F /* walkie_talkieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9AC9F2708D83600BD350F /* walkie_talkieApp.swift */; };
 		62B9ACA22708D83600BD350F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9ACA12708D83600BD350F /* ContentView.swift */; };
 		62B9ACA42708D83900BD350F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B9ACA32708D83900BD350F /* Assets.xcassets */; };
@@ -34,6 +50,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6221E66A2708E32C00D00A4B /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		6221E66C2708E4BF00D00A4B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		6221E66E2708E71300D00A4B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		62794371270953E800330294 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		627943732709553700330294 /* WaveAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimation.swift; sourceTree = "<group>"; };
+		62794375270A2AFF00330294 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		62794377270A32C800330294 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		62794379270A48D800330294 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		6279437B270A498B00330294 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		6279437D270A4A3A00330294 /* MessageBubbleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleHandler.swift; sourceTree = "<group>"; };
+		62B322102708F50100B421AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		62B322122708F6F900B421AE /* WalkieTalkieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkieTalkieView.swift; sourceTree = "<group>"; };
+		62B322142708F76000B421AE /* WalkieTalkieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkieTalkieRow.swift; sourceTree = "<group>"; };
+		62B322172708F82600B421AE /* Eextensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eextensions.swift; sourceTree = "<group>"; };
+		62B32219270908F000B421AE /* ContentViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewHandler.swift; sourceTree = "<group>"; };
+		62B3221C2709411000B421AE /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		62B3221E2709425A00B421AE /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		62B9AC9C2708D83600BD350F /* walkie-talkie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "walkie-talkie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B9AC9F2708D83600BD350F /* walkie_talkieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walkie_talkieApp.swift; sourceTree = "<group>"; };
 		62B9ACA12708D83600BD350F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +104,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62B322112708F68300B421AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62B322122708F6F900B421AE /* WalkieTalkieView.swift */,
+				62B322142708F76000B421AE /* WalkieTalkieRow.swift */,
+				62B3221E2709425A00B421AE /* MessagesView.swift */,
+				62B3221C2709411000B421AE /* MessageBubble.swift */,
+				62794371270953E800330294 /* RecordView.swift */,
+				627943732709553700330294 /* WaveAnimation.swift */,
+				62794375270A2AFF00330294 /* SearchBar.swift */,
+				62794377270A32C800330294 /* ProfileImage.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		62B322162708F80400B421AE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				62B322172708F82600B421AE /* Eextensions.swift */,
+				62794379270A48D800330294 /* CustomError.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		62B9AC932708D83600BD350F = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +151,17 @@
 		62B9AC9E2708D83600BD350F /* walkie-talkie */ = {
 			isa = PBXGroup;
 			children = (
+				62B322102708F50100B421AE /* Info.plist */,
 				62B9AC9F2708D83600BD350F /* walkie_talkieApp.swift */,
 				62B9ACA12708D83600BD350F /* ContentView.swift */,
+				62B32219270908F000B421AE /* ContentViewHandler.swift */,
+				6221E66A2708E32C00D00A4B /* NetworkHandler.swift */,
+				6221E66C2708E4BF00D00A4B /* Message.swift */,
+				6221E66E2708E71300D00A4B /* User.swift */,
+				6279437B270A498B00330294 /* Player.swift */,
+				6279437D270A4A3A00330294 /* MessageBubbleHandler.swift */,
+				62B322112708F68300B421AE /* Views */,
+				62B322162708F80400B421AE /* Helpers */,
 				62B9ACA32708D83900BD350F /* Assets.xcassets */,
 				62B9ACA52708D83900BD350F /* Preview Content */,
 			);
@@ -257,8 +323,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62B3221A270908F000B421AE /* ContentViewHandler.swift in Sources */,
+				6279437A270A48D800330294 /* CustomError.swift in Sources */,
+				62794372270953E800330294 /* RecordView.swift in Sources */,
 				62B9ACA22708D83600BD350F /* ContentView.swift in Sources */,
+				62B322182708F82600B421AE /* Eextensions.swift in Sources */,
+				62B322132708F6F900B421AE /* WalkieTalkieView.swift in Sources */,
+				6221E66D2708E4BF00D00A4B /* Message.swift in Sources */,
 				62B9ACA02708D83600BD350F /* walkie_talkieApp.swift in Sources */,
+				62794376270A2AFF00330294 /* SearchBar.swift in Sources */,
+				62B322152708F76000B421AE /* WalkieTalkieRow.swift in Sources */,
+				62B3221F2709425A00B421AE /* MessagesView.swift in Sources */,
+				627943742709553700330294 /* WaveAnimation.swift in Sources */,
+				62B3221D2709411000B421AE /* MessageBubble.swift in Sources */,
+				6221E66F2708E71300D00A4B /* User.swift in Sources */,
+				6279437E270A4A3A00330294 /* MessageBubbleHandler.swift in Sources */,
+				62794378270A32C800330294 /* ProfileImage.swift in Sources */,
+				6279437C270A498B00330294 /* Player.swift in Sources */,
+				6221E66B2708E32C00D00A4B /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -401,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -422,6 +504,7 @@
 				DEVELOPMENT_TEAM = 2XJ7AA238S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "walkie-talkie/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,6 +535,7 @@
 				DEVELOPMENT_TEAM = 2XJ7AA238S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "walkie-talkie/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

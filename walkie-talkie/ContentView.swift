@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var handler: ContentViewHandler
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if handler.isLoading {
+            Text("Loading ...")
+        } else {
+            mainView
+        }
+    }
+    
+    private var mainView: some View {
+       
+        WalkieTalkieView(friends: handler.getGroupedMessages())
+            .environmentObject(handler)
+            .gesture(DragGesture()
+                        .onChanged({ _ in
+                UIApplication.shared.dismissKeyboard()
+            }))
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ContentViewHandler())
     }
 }
