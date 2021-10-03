@@ -21,7 +21,8 @@ class NetworkHandler {
        // guard let userID = userID else { return }
        // guard let url  = URL(string: "\(server)/history/\(userID)") else {return}
         guard let url  = URL(string: "\(server)/history") else {
-            fatalError("Incorrect URL")
+            completion(nil, CustomError.incorrectURL)
+            return
         }
         
         // background task to make request with URLSession
@@ -34,7 +35,7 @@ class NetworkHandler {
             let decoder = JSONDecoder()
 
             do {
-                let messages = try decoder.decode([Message].self, from: data )
+                let messages = try decoder.decode([Message].self, from: data)
                 completion(messages, nil)
             } catch {
                 completion(nil, error)

@@ -17,9 +17,15 @@ class ContentViewHandler: ObservableObject {
     @Published var showSearchBar: Bool = false
     @Published var searchText: String = ""
     @Published var searching: Bool = false
+    @Published var alertMessage: String = ""
+    @Published var showAlert: Bool = false
     
     init() {
-        isLoading = true
+        queryItemsFromDB {_ in }
+    }
+    
+    func queryItemsFromDB(completion: @escaping (_ successes: Bool)->()) {
+        isLoading = self.friendsDictionary.isEmpty //This should not effect pull to refresh
         netHandler.queryHistory { messages, error in
             //TODO: Handle Error
             if let messages = messages {
@@ -28,10 +34,18 @@ class ContentViewHandler: ObservableObject {
                     let output = self.filterAndGroupData(messages, currentUseID:  UserHandler.shared.user.userName)
                     DispatchQueue.main.async {
                         self.isLoading = false
+                        completion(true)
                         withAnimation {
                             self.friendsDictionary = output
                         }
                     }
+                }
+            }
+            
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.alertMessage = error.localizedDescription
+                    self.showAlert = true
                 }
             }
         }

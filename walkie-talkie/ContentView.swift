@@ -13,6 +13,9 @@ struct ContentView: View {
     var body: some View {
         if handler.isLoading {
             Text("Loading ...")
+                .alert(isPresented: $handler.showAlert) {
+                    Alert(title: Text(handler.alertMessage), dismissButton: .cancel())
+                }
         } else {
             mainView
         }

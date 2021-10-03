@@ -17,6 +17,7 @@
 		6279437A270A48D800330294 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794379270A48D800330294 /* CustomError.swift */; };
 		6279437C270A498B00330294 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279437B270A498B00330294 /* Player.swift */; };
 		6279437E270A4A3A00330294 /* MessageBubbleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279437D270A4A3A00330294 /* MessageBubbleHandler.swift */; };
+		62794384270A579D00330294 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 62794383270A579D00330294 /* SwiftUIPullToRefresh */; };
 		62B322132708F6F900B421AE /* WalkieTalkieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B322122708F6F900B421AE /* WalkieTalkieView.swift */; };
 		62B322152708F76000B421AE /* WalkieTalkieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B322142708F76000B421AE /* WalkieTalkieRow.swift */; };
 		62B322182708F82600B421AE /* Eextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B322172708F82600B421AE /* Eextensions.swift */; };
@@ -84,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62794384270A579D00330294 /* SwiftUIPullToRefresh in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +211,9 @@
 			dependencies = (
 			);
 			name = "walkie-talkie";
+			packageProductDependencies = (
+				62794383270A579D00330294 /* SwiftUIPullToRefresh */,
+			);
 			productName = "walkie-talkie";
 			productReference = 62B9AC9C2708D83600BD350F /* walkie-talkie.app */;
 			productType = "com.apple.product-type.application";
@@ -281,6 +286,9 @@
 				Base,
 			);
 			mainGroup = 62B9AC932708D83600BD350F;
+			packageReferences = (
+				62794382270A579D00330294 /* XCRemoteSwiftPackageReference "swiftui-pull-to-refresh" */,
+			);
 			productRefGroup = 62B9AC9D2708D83600BD350F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -691,6 +699,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62794382270A579D00330294 /* XCRemoteSwiftPackageReference "swiftui-pull-to-refresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/globulus/swiftui-pull-to-refresh";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62794383270A579D00330294 /* SwiftUIPullToRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62794382270A579D00330294 /* XCRemoteSwiftPackageReference "swiftui-pull-to-refresh" */;
+			productName = SwiftUIPullToRefresh;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 62B9AC942708D83600BD350F /* Project object */;
 }
