@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Loading Animations",
+        "repositoryURL": "https://github.com/nikae/Loading-Animations.git",
+        "state": {
+          "branch": null,
+          "revision": "8ae932bbb086aac9640847fd4bd08a72b9f1f7d9",
+          "version": "1.0.8"
+        }
+      },
+      {
         "package": "SwiftUIPullToRefresh",
         "repositoryURL": "https://github.com/globulus/swiftui-pull-to-refresh",
         "state": {

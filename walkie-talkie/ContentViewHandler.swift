@@ -19,6 +19,7 @@ class ContentViewHandler: ObservableObject {
     @Published var searching: Bool = false
     @Published var alertMessage: String = ""
     @Published var showAlert: Bool = false
+    @Published var isRefreshing: Bool = false
   
     //MARK: ADMIN
     @Published var admin_AllUsers: [String] = []
@@ -32,12 +33,14 @@ class ContentViewHandler: ObservableObject {
         if UserHandler.shared.user.isAdmin {
             admin_queryItemsFromDB()
         } else {
-            queryItemsFromDB {_ in }
+            queryItemsFromDB()
         }
     }
     
-    func queryItemsFromDB(completion: @escaping (_ successes: Bool)->()) {
-        isLoading = self.friendsDictionary.isEmpty //This should not effect pull to refresh
+    func queryItemsFromDB() {
+        DispatchQueue.main.async {
+            self.isLoading = self.friendsDictionary.isEmpty //This should not effect pull to refresh
+        }
         netHandler.queryHistory { messages, error in
             if let messages = messages {
                 DispatchQueue.global(qos: .userInitiated).async {
@@ -45,7 +48,7 @@ class ContentViewHandler: ObservableObject {
                     let output = self.filterAndGroupData(messages, currentUseID:  UserHandler.shared.user.userName)
                     DispatchQueue.main.async {
                         self.isLoading = false
-                        completion(true)
+                        self.isRefreshing = false
                         withAnimation {
                             self.friendsDictionary = output
                         }
@@ -55,7 +58,6 @@ class ContentViewHandler: ObservableObject {
             
             if let error = error {
                 DispatchQueue.main.async {
-                    completion(false)
                     self.alertMessage = error.localizedDescription
                     self.showAlert = true
                 }

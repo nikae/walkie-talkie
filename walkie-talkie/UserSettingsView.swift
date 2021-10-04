@@ -45,7 +45,9 @@ struct UserSettingsView: View {
             Section(header: Text("User")) {
                 TextField("User Name:", text: $handler.userName)
                     .onReceive(handler.$userName) {
-                        handler.updateUserName($0)
+                        if UserHandler.shared.user.userName != $0 {
+                            handler.updateUserName($0)
+                        }
                     }
             }
             
@@ -53,14 +55,11 @@ struct UserSettingsView: View {
                 Toggle("Admin \(handler.isOn ? "On" : "Off")",
                        isOn: $handler.isOn)
                     .onReceive(handler.$isOn) {
-                        handler.updateAdminStatus($0)
+                        if UserHandler.shared.user.isAdmin != $0 {
+                            handler.updateAdminStatus($0)
+                        }
                     }
             }
-            
-//            Text(handler.updatedName)
-//                .onTapGesture {
-//                    handler.updatedName = "shared \(UserHandler.shared.user.userName)"
-//            }
         }
     }
 }

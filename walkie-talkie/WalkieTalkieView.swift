@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SwiftUIPullToRefresh
+import CircleLinesAnimation
 
 struct WalkieTalkieView: View {
     @EnvironmentObject var handler: ContentViewHandler
@@ -27,30 +27,33 @@ struct WalkieTalkieView: View {
                           searching: $handler.searching)
             }
             if handler.isLoading {
-                Text("Loading ...")
-                    .alert(isPresented: $handler.showAlert) {
-                        Alert(title: Text(handler.alertMessage), dismissButton: .cancel())
-                    }
+                CircleLinesAnimation(height: 50, color: Color(.label))
             } else {
-            RefreshableScrollView(onRefresh: { done in
-                if handler.showSearchBar {
-                    done()
-                } else {
-                    handler.queryItemsFromDB {_ in
-                        done()
+                RefreshableScrollView(refreshing: $handler.isRefreshing) {
+                    list.padding(.horizontal)
+                }
+                .onReceive(handler.$isRefreshing) { refreshing in
+                    if refreshing {
+                        if handler.showSearchBar || UserHandler.shared.user.isAdmin {
+                            DispatchQueue.main.async {
+                                handler.isRefreshing = false
+                            }
+                        } else {
+                            handler.queryItemsFromDB()
+                        }
                     }
                 }
-            }) {
-                list
-                    .padding(.horizontal)
-            }
-            .edgesIgnoringSafeArea(.bottom)
-        
             }
         }
         .navigationTitle(barTitle)
         .navigationBarTitleDisplayMode(barTitleDisplayMode)
         .toolbar { barButton }
+        .alert(isPresented: $handler.showAlert) {
+            Alert(title: Text(handler.alertMessage), dismissButton: .cancel())
+        }
+        .onTapGesture {
+            handler.isRefreshing = false
+        }
         
     }
     
@@ -92,8 +95,3 @@ struct WalkieTalkieView_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
     }
 }
-
-
-
-
-
