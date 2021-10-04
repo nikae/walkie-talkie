@@ -10,7 +10,6 @@ import SwiftUIPullToRefresh
 
 struct WalkieTalkieView: View {
     @EnvironmentObject var handler: ContentViewHandler
-    
     let friends: [Friend]
     
     private var barTitle: String {
@@ -27,6 +26,12 @@ struct WalkieTalkieView: View {
                 SearchBar(searchText: $handler.searchText,
                           searching: $handler.searching)
             }
+            if handler.isLoading {
+                Text("Loading ...")
+                    .alert(isPresented: $handler.showAlert) {
+                        Alert(title: Text(handler.alertMessage), dismissButton: .cancel())
+                    }
+            } else {
             RefreshableScrollView(onRefresh: { done in
                 if handler.showSearchBar {
                     done()
@@ -40,10 +45,13 @@ struct WalkieTalkieView: View {
                     .padding(.horizontal)
             }
             .edgesIgnoringSafeArea(.bottom)
+        
+            }
         }
         .navigationTitle(barTitle)
         .navigationBarTitleDisplayMode(barTitleDisplayMode)
         .toolbar { barButton }
+        
     }
     
     private var list: some View {

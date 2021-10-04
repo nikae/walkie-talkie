@@ -18,6 +18,9 @@
 		6279437C270A498B00330294 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279437B270A498B00330294 /* Player.swift */; };
 		6279437E270A4A3A00330294 /* MessageBubbleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279437D270A4A3A00330294 /* MessageBubbleHandler.swift */; };
 		62794384270A579D00330294 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 62794383270A579D00330294 /* SwiftUIPullToRefresh */; };
+		62794386270A639D00330294 /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794385270A639D00330294 /* UserSettingsView.swift */; };
+		62794388270A647000330294 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794387270A647000330294 /* Preferences.swift */; };
+		6279438A270A816800330294 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794389270A816800330294 /* AdminView.swift */; };
 		62B322132708F6F900B421AE /* WalkieTalkieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B322122708F6F900B421AE /* WalkieTalkieView.swift */; };
 		62B322152708F76000B421AE /* WalkieTalkieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B322142708F76000B421AE /* WalkieTalkieRow.swift */; };
 		62B322182708F82600B421AE /* Eextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B322172708F82600B421AE /* Eextensions.swift */; };
@@ -61,6 +64,9 @@
 		62794379270A48D800330294 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		6279437B270A498B00330294 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		6279437D270A4A3A00330294 /* MessageBubbleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleHandler.swift; sourceTree = "<group>"; };
+		62794385270A639D00330294 /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
+		62794387270A647000330294 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		62794389270A816800330294 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
 		62B322102708F50100B421AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		62B322122708F6F900B421AE /* WalkieTalkieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkieTalkieView.swift; sourceTree = "<group>"; };
 		62B322142708F76000B421AE /* WalkieTalkieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkieTalkieRow.swift; sourceTree = "<group>"; };
@@ -117,6 +123,8 @@
 				627943732709553700330294 /* WaveAnimation.swift */,
 				62794375270A2AFF00330294 /* SearchBar.swift */,
 				62794377270A32C800330294 /* ProfileImage.swift */,
+				62794385270A639D00330294 /* UserSettingsView.swift */,
+				62794389270A816800330294 /* AdminView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 			children = (
 				62B322172708F82600B421AE /* Eextensions.swift */,
 				62794379270A48D800330294 /* CustomError.swift */,
+				62794387270A647000330294 /* Preferences.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -333,11 +342,13 @@
 			files = (
 				62B3221A270908F000B421AE /* ContentViewHandler.swift in Sources */,
 				6279437A270A48D800330294 /* CustomError.swift in Sources */,
+				62794388270A647000330294 /* Preferences.swift in Sources */,
 				62794372270953E800330294 /* RecordView.swift in Sources */,
 				62B9ACA22708D83600BD350F /* ContentView.swift in Sources */,
 				62B322182708F82600B421AE /* Eextensions.swift in Sources */,
 				62B322132708F6F900B421AE /* WalkieTalkieView.swift in Sources */,
 				6221E66D2708E4BF00D00A4B /* Message.swift in Sources */,
+				6279438A270A816800330294 /* AdminView.swift in Sources */,
 				62B9ACA02708D83600BD350F /* walkie_talkieApp.swift in Sources */,
 				62794376270A2AFF00330294 /* SearchBar.swift in Sources */,
 				62B322152708F76000B421AE /* WalkieTalkieRow.swift in Sources */,
@@ -346,6 +357,7 @@
 				62B3221D2709411000B421AE /* MessageBubble.swift in Sources */,
 				6221E66F2708E71300D00A4B /* User.swift in Sources */,
 				6279437E270A4A3A00330294 /* MessageBubbleHandler.swift in Sources */,
+				62794386270A639D00330294 /* UserSettingsView.swift in Sources */,
 				62794378270A32C800330294 /* ProfileImage.swift in Sources */,
 				6279437C270A498B00330294 /* Player.swift in Sources */,
 				6221E66B2708E32C00D00A4B /* NetworkHandler.swift in Sources */,

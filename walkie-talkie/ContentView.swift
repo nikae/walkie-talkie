@@ -11,19 +11,17 @@ struct ContentView: View {
     @EnvironmentObject var handler: ContentViewHandler
     
     var body: some View {
-        if handler.isLoading {
-            Text("Loading ...")
-                .alert(isPresented: $handler.showAlert) {
-                    Alert(title: Text(handler.alertMessage), dismissButton: .cancel())
-                }
+        if UserHandler.shared.user.isAdmin {
+            AdminView()
+                .environmentObject(handler)
         } else {
             mainView
+                .environmentObject(handler)
         }
     }
     
     private var mainView: some View {
-       
-        WalkieTalkieView(friends: handler.getGroupedMessages())
+        WalkieTalkieView(friends: handler.getFilteredFriends())
             .environmentObject(handler)
             .gesture(DragGesture()
                         .onChanged({ _ in

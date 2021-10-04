@@ -19,6 +19,6 @@ class UserHandler {
     static let shared = UserHandler()
     var user: User
     init() {
-        user = User(userName: "kyle_ski", isAdmin: false)
+        user = User(userName: Preferences.userName, isAdmin: Preferences.isAdmin)
     }
 }

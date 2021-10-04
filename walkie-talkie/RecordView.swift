@@ -6,11 +6,20 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct RecordView: View {
     @State private var isPressed = false
     @EnvironmentObject var handler: ContentViewHandler
     @State var id = 40000 //Used for creating new Message object
+    
+    private let BeginRecording: SystemSoundID = 1113
+    private let EndRecording: SystemSoundID = 1114
+    private let sent: SystemSoundID = 1004
+    private func simpleSuccess() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
     
     let user: String
     var body: some View {
@@ -24,10 +33,14 @@ struct RecordView: View {
                     if isPressed != true {
                         isPressed = true
                         print("Pressed")
+                        AudioServicesPlaySystemSound(BeginRecording)
+                        simpleSuccess()
                     }
                 } onRelease: {
                     isPressed = false
+                    AudioServicesPlaySystemSound(EndRecording)
                     print("Released")
+                    simpleSuccess()
                     id += 1
                     let message =
                     Message(id: id,
@@ -36,6 +49,7 @@ struct RecordView: View {
                             recording: "",
                             username_to: user)
                     handler.friendsDictionary[user]?.messages.append(message)
+                    AudioServicesPlaySystemSound(sent)
                 }
     }
     

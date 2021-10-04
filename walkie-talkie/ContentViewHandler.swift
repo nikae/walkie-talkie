@@ -19,15 +19,26 @@ class ContentViewHandler: ObservableObject {
     @Published var searching: Bool = false
     @Published var alertMessage: String = ""
     @Published var showAlert: Bool = false
+  
+    //MARK: ADMIN
+    @Published var admin_AllUsers: [String] = []
+    private var admin_LocalList: [Message] = []
     
     init() {
-        queryItemsFromDB {_ in }
+        configure()
+    }
+    
+    private func configure() {
+        if UserHandler.shared.user.isAdmin {
+            admin_queryItemsFromDB()
+        } else {
+            queryItemsFromDB {_ in }
+        }
     }
     
     func queryItemsFromDB(completion: @escaping (_ successes: Bool)->()) {
         isLoading = self.friendsDictionary.isEmpty //This should not effect pull to refresh
         netHandler.queryHistory { messages, error in
-            //TODO: Handle Error
             if let messages = messages {
                 DispatchQueue.global(qos: .userInitiated).async {
                     //Put this on a different thread not to block the main thread
@@ -44,6 +55,7 @@ class ContentViewHandler: ObservableObject {
             
             if let error = error {
                 DispatchQueue.main.async {
+                    completion(false)
                     self.alertMessage = error.localizedDescription
                     self.showAlert = true
                 }
@@ -51,8 +63,9 @@ class ContentViewHandler: ObservableObject {
         }
     }
     
-    
-    func getGroupedMessages() -> [Friend] {
+    /// Provides either a full array of  Friends or filtered based on search text.
+    /// - Returns: Filtered array of friends
+    func getFilteredFriends() -> [Friend] {
         if searching {
            return friendsDictionary.values
                 .filter { $0.name.contains(searchText.lowercased()) }
@@ -63,7 +76,11 @@ class ContentViewHandler: ObservableObject {
         }
     }
     
-    
+    /// Filters raw data from DB for the current user.
+    /// - Parameters:
+    ///   - messages: Array of messages. [Message]
+    ///   - currentUseID: String
+    /// - Returns: Filtered dictionary of friends. [String : Friend].
     func filterAndGroupData(_ messages: [Message], currentUseID: String) ->  [String : Friend] {
         var output = [String : Friend]()
         
@@ -95,7 +112,76 @@ class ContentViewHandler: ObservableObject {
             }
         }
         
-        
       return output
+    }
+}
+
+//MARK: Admin
+extension ContentViewHandler {
+    
+    private func admin_queryItemsFromDB() {
+        isLoading = true
+        netHandler.queryHistory { messages, error in
+            if let messages = messages {
+                DispatchQueue.global(qos: .userInitiated).async {
+                    self.admin_LocalList = messages
+                    let output = self.admin_GetAllUsers(messages)
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                        withAnimation {
+                            self.admin_AllUsers = output
+                        }
+                    }
+                }
+            }
+            
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.alertMessage = error.localizedDescription
+                    self.showAlert = true
+                }
+            }
+        }
+    }
+    
+    /// Makes array of unique user names.
+    /// - Parameter messages: Raw message data from DB. [Message]
+    /// - Returns:  An array of unique user names. [String]
+    private func admin_GetAllUsers(_ messages: [Message]) -> [String] {
+        var allUsers: [String] = []
+        
+        for message in messages {
+            if let username_from = message.username_from, !allUsers.contains(username_from) {
+                allUsers.append(username_from)
+            }
+            
+            if !allUsers.contains(message.username_to) {
+                allUsers.append(message.username_to)
+            }
+        }
+       
+        return allUsers.sorted { $0 < $1 }
+    }
+    
+    ///Filters raw data from DB for a selected user.
+    /// - Parameter userID: String
+    func admin_FilterData(_ userID: String) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let output = self.filterAndGroupData(self.admin_LocalList, currentUseID: userID)
+            
+            DispatchQueue.main.async {
+                withAnimation {
+                    self.friendsDictionary = output
+                }
+            }
+        }
+    }
+}
+
+//MARK: Delegate
+extension ContentViewHandler: UserSettingsViewHandlerDelegate {
+    func reloadData() {
+        friendsDictionary.removeAll()
+        configure()
     }
 }

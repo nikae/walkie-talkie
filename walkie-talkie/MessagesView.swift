@@ -18,8 +18,10 @@ struct MessagesView: View {
                 list
                     .padding()
             }
-            RecordView(user: friend.name)
-                .environmentObject(handler)
+            if !UserHandler.shared.user.isAdmin {
+                RecordView(user: friend.name)
+                    .environmentObject(handler)
+            }
         }.navigationTitle(friend.name.capitalized)
            
     }

@@ -10,19 +10,26 @@ import SwiftUI
 @main
 struct walkie_talkieApp: App {
     let handler = ContentViewHandler()
+    let userSettingsViewHandler = UserSettingsViewHandler()
+    
+    init() {
+        userSettingsViewHandler.delegate = handler
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-            ContentView()
-                .environmentObject(handler)
-                .navigationTitle(Text("Walkie Talkie"))
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: Text("Settings")) {
-                            Image(systemName: "person.circle.fill")
+                ContentView()
+                    .environmentObject(handler)
+                    .navigationTitle(Text("Walkie Talkie"))
+                    .toolbar {
+                        ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            NavigationLink(destination: UserSettingsView()
+                                            .environmentObject(userSettingsViewHandler)) {
+                                Image(systemName: "person.circle.fill")
+                            }
                         }
                     }
-                }
             }
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
             .accentColor(Color(.label))
