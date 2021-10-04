@@ -19,6 +19,11 @@ class UserHandler {
     static let shared = UserHandler()
     var user: User
     init() {
+        //dev_skier
+        //kyle_ski
+        //krichardinr5
+        //kblackader3
+        //kmirams4
         user = User(userName: Preferences.userName, isAdmin: Preferences.isAdmin)
     }
 }
