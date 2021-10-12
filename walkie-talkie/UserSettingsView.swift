@@ -7,36 +7,6 @@
 
 import SwiftUI
 
-protocol UserSettingsViewHandlerDelegate: AnyObject {
-    func reloadData()
-}
-
-class UserSettingsViewHandler: ObservableObject {
-    @Published var isOn = false
-    @Published var userName = ""
-    
-    @Published var updatedName = "Tap"
-    
-    weak var delegate: UserSettingsViewHandlerDelegate?
-    
-    init() {
-        isOn = UserHandler.shared.user.isAdmin
-        userName = UserHandler.shared.user.userName
-    }
-    
-    func updateUserName(_ newName: String) {
-        Preferences.userName = newName
-        UserHandler.shared.user.userName = newName
-        delegate?.reloadData()
-    }
-    
-    func updateAdminStatus(_ isAdmin: Bool) {
-        Preferences.isAdmin = isAdmin
-        UserHandler.shared.user.isAdmin = isAdmin
-        delegate?.reloadData()
-    }
-}
-
 struct UserSettingsView: View {
     @EnvironmentObject var handler: UserSettingsViewHandler
    
@@ -45,7 +15,7 @@ struct UserSettingsView: View {
             Section(header: Text("User")) {
                 TextField("User Name:", text: $handler.userName)
                     .onReceive(handler.$userName) {
-                        if UserHandler.shared.user.userName != $0 {
+                        if UserHandler.shared.currentUser.userName != $0 {
                             handler.updateUserName($0)
                         }
                     }
@@ -55,7 +25,7 @@ struct UserSettingsView: View {
                 Toggle("Admin \(handler.isOn ? "On" : "Off")",
                        isOn: $handler.isOn)
                     .onReceive(handler.$isOn) {
-                        if UserHandler.shared.user.isAdmin != $0 {
+                        if UserHandler.shared.currentUser.isAdmin != $0 {
                             handler.updateAdminStatus($0)
                         }
                     }

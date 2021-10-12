@@ -11,7 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var handler: ContentViewHandler
     
     var body: some View {
-        if UserHandler.shared.user.isAdmin {
+        if UserHandler.shared.currentUser.isAdmin {
             AdminView()
                 .environmentObject(handler)
         } else {

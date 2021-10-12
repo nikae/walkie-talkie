@@ -15,10 +15,6 @@ struct WalkieTalkieView: View {
     private var barTitle: String {
         handler.searching ? "Searching" : "Walkie Talkie"
     }
-    
-    private var barTitleDisplayMode: NavigationBarItem.TitleDisplayMode {
-        handler.showSearchBar ? .inline : .automatic
-    }
         
     var body: some View {
         VStack {
@@ -27,14 +23,22 @@ struct WalkieTalkieView: View {
                           searching: $handler.searching)
             }
             if handler.isLoading {
-                CircleLinesAnimation(height: 50, color: Color(.label))
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        CircleLinesAnimation(height: 50, color: Color(.label))
+                        Spacer()
+                    }
+                    Spacer()
+                }
             } else {
                 RefreshableScrollView(refreshing: $handler.isRefreshing) {
                     list.padding(.horizontal)
                 }
                 .onReceive(handler.$isRefreshing) { refreshing in
                     if refreshing {
-                        if handler.showSearchBar || UserHandler.shared.user.isAdmin {
+                        if handler.showSearchBar || UserHandler.shared.currentUser.isAdmin {
                             DispatchQueue.main.async {
                                 handler.isRefreshing = false
                             }
@@ -46,8 +50,12 @@ struct WalkieTalkieView: View {
             }
         }
         .navigationTitle(barTitle)
-        .navigationBarTitleDisplayMode(barTitleDisplayMode)
-        .toolbar { barButton }
+        .navigationBarTitleDisplayMode(handler.showSearchBar ? .inline : .automatic)
+        .toolbar {
+            if !handler.isLoading {
+                barButton
+            }
+        }
         .alert(isPresented: $handler.showAlert) {
             Alert(title: Text(handler.alertMessage), dismissButton: .cancel())
         }

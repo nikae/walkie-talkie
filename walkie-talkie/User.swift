@@ -17,13 +17,13 @@ struct User {
 /// UserHandler class is a singleton that allows us to maintain consistency throughout the app
 class UserHandler {
     static let shared = UserHandler()
-    var user: User
+    var currentUser: User
     init() {
         //dev_skier
         //kyle_ski
         //krichardinr5
         //kblackader3
         //kmirams4
-        user = User(userName: Preferences.userName, isAdmin: Preferences.isAdmin)
+        currentUser = User(userName: Preferences.userName, isAdmin: Preferences.isAdmin)
     }
 }

@@ -30,7 +30,7 @@ class ContentViewHandler: ObservableObject {
     }
     
     private func configure() {
-        if UserHandler.shared.user.isAdmin {
+        if UserHandler.shared.currentUser.isAdmin {
             admin_queryItemsFromDB()
         } else {
             queryItemsFromDB()
@@ -45,7 +45,7 @@ class ContentViewHandler: ObservableObject {
             if let messages = messages {
                 DispatchQueue.global(qos: .userInitiated).async {
                     //Put this on a different thread not to block the main thread
-                    let output = self.filterAndGroupData(messages, currentUseID:  UserHandler.shared.user.userName)
+                    let output = self.filterAndGroupData(messages, currentUseID:  UserHandler.shared.currentUser.userName)
                     DispatchQueue.main.async {
                         self.isLoading = false
                         self.isRefreshing = false
@@ -100,12 +100,12 @@ class ContentViewHandler: ObservableObject {
                 key = message.username_to
             }
             
-            //Check if the group already exists
+            //Check if the Friend already exists
             if output.keys.contains(where: { $0 == message.username_from || $0 == message.username_to }) {
-                //Add message to the group
+                //Add message to the Friend
                 output[key]?.messages.append(message)
             } else {
-                //Create a new group
+                //Create a new Friend
                 output[key] = Friend(
                     id: key,
                     name: key,
@@ -180,7 +180,7 @@ extension ContentViewHandler {
     }
 }
 
-//MARK: Delegate
+//MARK: UserSettings Delegate
 extension ContentViewHandler: UserSettingsViewHandlerDelegate {
     func reloadData() {
         friendsDictionary.removeAll()

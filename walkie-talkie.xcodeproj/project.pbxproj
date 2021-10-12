@@ -10,6 +10,7 @@
 		6221E66B2708E32C00D00A4B /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6221E66A2708E32C00D00A4B /* NetworkHandler.swift */; };
 		6221E66D2708E4BF00D00A4B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6221E66C2708E4BF00D00A4B /* Message.swift */; };
 		6221E66F2708E71300D00A4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6221E66E2708E71300D00A4B /* User.swift */; };
+		622C09BC2714E86C0042A0E2 /* UserSettingsViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C09BB2714E86C0042A0E2 /* UserSettingsViewHandler.swift */; };
 		62794372270953E800330294 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794371270953E800330294 /* RecordView.swift */; };
 		627943742709553700330294 /* WaveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627943732709553700330294 /* WaveAnimation.swift */; };
 		62794376270A2AFF00330294 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62794375270A2AFF00330294 /* SearchBar.swift */; };
@@ -59,6 +60,7 @@
 		6221E66A2708E32C00D00A4B /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		6221E66C2708E4BF00D00A4B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		6221E66E2708E71300D00A4B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		622C09BB2714E86C0042A0E2 /* UserSettingsViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewHandler.swift; sourceTree = "<group>"; };
 		62794371270953E800330294 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		627943732709553700330294 /* WaveAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimation.swift; sourceTree = "<group>"; };
 		62794375270A2AFF00330294 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				6221E66E2708E71300D00A4B /* User.swift */,
 				6279437B270A498B00330294 /* Player.swift */,
 				6279437D270A4A3A00330294 /* MessageBubbleHandler.swift */,
+				622C09BB2714E86C0042A0E2 /* UserSettingsViewHandler.swift */,
 				62B322112708F68300B421AE /* Views */,
 				62B322162708F80400B421AE /* Helpers */,
 				62B9ACA32708D83900BD350F /* Assets.xcassets */,
@@ -361,6 +364,7 @@
 				62B322152708F76000B421AE /* WalkieTalkieRow.swift in Sources */,
 				62B3221F2709425A00B421AE /* MessagesView.swift in Sources */,
 				627943742709553700330294 /* WaveAnimation.swift in Sources */,
+				622C09BC2714E86C0042A0E2 /* UserSettingsViewHandler.swift in Sources */,
 				62B3221D2709411000B421AE /* MessageBubble.swift in Sources */,
 				6221E66F2708E71300D00A4B /* User.swift in Sources */,
 				6279437E270A4A3A00330294 /* MessageBubbleHandler.swift in Sources */,

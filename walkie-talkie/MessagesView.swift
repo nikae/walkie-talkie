@@ -9,8 +9,9 @@ import SwiftUI
 
 struct MessagesView: View {
     @EnvironmentObject var handler: ContentViewHandler
-    let friend: Friend
-    let currentUser = UserHandler.shared.user
+    @State var friend: Friend
+    
+    let currentUser = UserHandler.shared.currentUser
   
     var body: some View {
         VStack {
@@ -18,11 +19,16 @@ struct MessagesView: View {
                 list
                     .padding()
             }
-            if !UserHandler.shared.user.isAdmin {
-                RecordView(user: friend.name)
-                    .environmentObject(handler)
+            if !UserHandler.shared.currentUser.isAdmin {
+                RecordView(user: friend.name) { message in
+                    friend.messages.append(message)
+                }
             }
-        }.navigationTitle(friend.name.capitalized)
+        }
+        .navigationTitle(friend.name.capitalized)
+        .onDisappear {
+            handler.friendsDictionary[friend.name]?.messages = friend.messages
+        }
            
     }
     

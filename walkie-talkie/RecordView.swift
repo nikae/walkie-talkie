@@ -8,11 +8,14 @@
 import SwiftUI
 import AVFoundation
 
+var messageID = 40000 //Used for creating new Message object
 struct RecordView: View {
-    @State private var isPressed = false
-    @EnvironmentObject var handler: ContentViewHandler
-    @State var id = 40000 //Used for creating new Message object
+   
+    let user: String
+    let onSend: (_ message: Message) -> ()
     
+    @State private var isPressed = false
+
     private let BeginRecording: SystemSoundID = 1113
     private let EndRecording: SystemSoundID = 1114
     private let sent: SystemSoundID = 1004
@@ -21,7 +24,6 @@ struct RecordView: View {
         generator.notificationOccurred(.success)
     }
     
-    let user: String
     var body: some View {
             VStack {
                 icon
@@ -41,14 +43,14 @@ struct RecordView: View {
                     AudioServicesPlaySystemSound(EndRecording)
                     print("Released")
                     simpleSuccess()
-                    id += 1
+                    messageID += 1
                     let message =
-                    Message(id: id,
-                            username_from: UserHandler.shared.user.userName,
+                    Message(id: messageID,
+                            username_from: UserHandler.shared.currentUser.userName,
                             timestamp: "\(Date().timeIntervalSince1970)",
                             recording: "",
                             username_to: user)
-                    handler.friendsDictionary[user]?.messages.append(message)
+                    onSend(message)
                     AudioServicesPlaySystemSound(sent)
                 }
     }
@@ -88,7 +90,7 @@ struct RecordView: View {
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordView(user: "")
+        RecordView(user: "") { _ in }
     }
 }
 
