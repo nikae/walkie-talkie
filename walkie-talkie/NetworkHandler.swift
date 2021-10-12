@@ -12,7 +12,7 @@ class NetworkHandler {
 #if targetEnvironment(simulator)
     let server = "http://localhost:3000"
 #else
-    let server = "http://192.168.1.50:3000"
+    let server = ""
 #endif
     
     /// Queries all "history" data from the Mock Backend.
